@@ -1,0 +1,51 @@
+<form #loginForm="ngForm" (submit)="updateInfo()">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="duplicateUser.email" #email="ngModel" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" name="username" [(ngModel)]="duplicateUser.username" #username="ngModel">
+  </div>
+  <div class="mb-3">
+    <label for="firstname" class="form-label">Firstname</label>
+    <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="duplicateUser.firstname" #firstname="ngModel">
+  </div>
+  <div class="mb-3">
+    <label for="lastname" class="form-label">Lastname</label>
+    <input type="lastname" class="form-control" id="lastname" name="lastname" [(ngModel)]="duplicateUser.lastname" #lastname="ngModel">
+  </div>
+  <div class="mb-3">
+    <label for="phonenumber" class="form-label">Phonenumber</label>
+    <input type="tel" class="form-control" id="mobile" name="mobile" [(ngModel)]="duplicateUser.mobile" #mobile="ngModel">
+  </div>
+  <div class="mb-3">
+    <label for="phaddress" class="form-label">Physical Address</label>
+    <input type="text" class="form-control" id="phaddress" name="phaddress" [(ngModel)]="duplicateUser.phaddress" #phaddress="ngModel">
+  </div>
+  <div class="mb-3">
+    <label for="poaddress" class="form-label">Postal Address</label>
+    <input type="text" class="form-control" id="poaddress" name="poaddress" [(ngModel)]="duplicateUser.poaddress" #poaddress="ngModel">
+  </div>
+  <div class="mb-3">
+    <label for="nin" class="form-label">National ID Number</label>
+    <input type="text" class="form-control" id="nin" name="nin" [(ngModel)]="duplicateUser.nin" #nin="ngModel">
+  </div>
+
+  <div class="mb-3">
+    <label for="dob" class="form-label">Date of Birth</label>
+    <input type="text" class="form-control" id="dob" name="dob" [(ngModel)]="duplicateUser.dob" #dob="ngModel">
+  </div>
+
+  <div class="mb-3">
+    <label for="occupation" class="form-label">Occupation</label>
+    <input type="text" class="form-control" id="occupation" name="occupation" [(ngModel)]="duplicateUser.occupation" #occupation="ngModel">
+  </div>
+
+  <div class="mb-3">
+    <label for="gnumber" class="form-label">Grantors Number</label>
+    <input type="text" class="form-control" id="gnumber" name="gnumber" [(ngModel)]="duplicateUser.gnumber" #gnumber="ngModel">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

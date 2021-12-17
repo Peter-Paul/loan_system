@@ -1,0 +1,6 @@
+<app-dashboard>
+  <div *ngIf="thisuser">
+    <h3>Profile</h3>
+    <app-profile (update)="updateUser($event)" [user]="thisuser"></app-profile>
+  </div>
+</app-dashboard>

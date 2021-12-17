@@ -1,0 +1,59 @@
+<div>
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item mb-2">
+        Username : <span *ngIf="user.username; else un">{{user.username}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        Email : <span *ngIf="user.email; else un">{{user.email}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        Firstname : <span *ngIf="user.firstname; else un">{{user.firstname}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        Lastname : <span *ngIf="user.lastname; else un">{{user.lastname}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        Contact : <span *ngIf="user.mobile; else un">{{user.mobile}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        Physical Address : <span *ngIf="user.phaddress; else un">{{user.phaddress}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        Postal Address : <span *ngIf="user.poaddress; else un">{{user.poaddress}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        National ID Number : <span *ngIf="user.nin; else un">{{user.nin}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        Date of Birth : <span *ngIf="user.dob; else un">{{user.dob}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        Occupation : <span *ngIf="user.occupation; else un">{{user.occupation}}</span>
+      </li>
+      <li class="list-group-item mb-2">
+        Grantors Number : <span *ngIf="user.gnumber; else un">{{user.gnumber}}</span>
+      </li>
+      <ng-template #un>
+        <span class="text-danger">Please provide data</span>
+      </ng-template>
+    </ul>
+    <button class="btn btn-primary" (click)="open(content);">Update</button>
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close"
+          (click)="modal.dismiss('Cross click'); success=false; ">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-profile-form (update)="updateInfo($event)" [user]="user" ></app-profile-form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light"
+          (click)="modal.close('Close click'); success=false;">Close</button>
+      </div>
+    </ng-template>
+  </div>
+</div>

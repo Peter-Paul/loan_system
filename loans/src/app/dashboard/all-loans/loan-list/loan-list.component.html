@@ -1,0 +1,89 @@
+<div *ngIf="loans">
+  <div *ngIf="loans.length>0;else noLoans">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col" [hidden]='!user.is_staff'>User</th>
+          <th scope="col" sortable='name' (sort)="onSort($event)">Amount</th>
+          <th scope="col">Status</th>
+          <th scope="col">Details</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let l of loans">
+          <!-- <th scope="row">{{ l.id }}</th> -->
+          <th scope="row">#</th>
+          <td [hidden]='!user.is_staff'>
+            <a name="user" id="user" class="btn btn-sm btn-link" (click)="open(usermodel);" role="button">{{ l.username}}</a>
+            <ng-template #usermodel let-modal>
+              <div class="modal-header">
+                <h5 class="modal-title">User Information</h5>
+                <button type="button" class="close" aria-label="Close"
+                  (click)="modal.dismiss('Cross click'); success=false; ">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <app-loan-user [username]='l.username' [users]='users'></app-loan-user>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light"
+                  (click)="modal.close('Close click'); success=false;">Close</button>
+              </div>
+            </ng-template>
+          </td>
+          <td>{{ l.lamount | currency:'UGX'}}</td>
+          <td>{{ l.active?'Active':'Inactive' }}</td>
+          <td>
+            <a name="details" id="details" [class.disabled]='!l.active' class="btn btn-sm btn-link" (click)="open(detailmodel);" role="button">Details</a>
+            <ng-template #detailmodel let-modal>
+              <div class="modal-header">
+                <h5 class="modal-title">Loan Details</h5>
+                <button type="button" class="close" aria-label="Close"
+                  (click)="modal.dismiss('Cross click'); success=false; ">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <app-loan-info [loan]='l' ></app-loan-info>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light"
+                  (click)="modal.close('Close click'); success=false;">Close</button>
+              </div>
+            </ng-template>
+          </td>
+          <td>
+            <a name="update" [class.disabled]='l.active&&!user.is_staff' id="update" class="btn btn-sm btn-link" (click)="open(updatemodel);" role="button">Update</a>
+            <ng-template #updatemodel let-modal>
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Loan</h5>
+                <button type="button" class="close" aria-label="Close"
+                  (click)="modal.dismiss('Cross click'); success=false; ">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <app-loan-update [loan]='l' [user]='user' (editLoan)="updateLoan($event)" ></app-loan-update>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light"
+                  (click)="modal.close('Close click'); success=false;">Close</button>
+              </div>
+            </ng-template>
+          </td>
+          <td><a name="delete" [class.disabled]='l.active&&!user.is_staff' id="delete" class="btn btn-sm btn-danger" (click)='deleteLoan(l.id)' role="button">x</a></td>
+        </tr>
+        </tbody>
+      </table>
+
+  </div>
+  <ng-template #noLoans>
+    <div class="alert alert-info" role="alert">
+      Currently no loans made
+     </div>
+    </ng-template>
+</div>

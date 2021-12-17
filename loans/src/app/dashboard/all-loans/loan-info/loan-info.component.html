@@ -1,0 +1,13 @@
+<div>
+  <ul class="list-group">
+    <li class="list-group-item ">Loan Amount: {{loan.lamount|currency:'UGX'}}</li>
+    <li class="list-group-item ">Expected Amount: {{eamount|currency:'UGX'}}</li>
+    <li class="list-group-item ">Paid Amount: {{loan.paid|currency:'UGX'}}</li>
+    <li class="list-group-item">Interest Rate: {{loan.irate|percent}}</li>
+    <li class="list-group-item">Duration in months: {{loan.duration}}</li>
+    <li class="list-group-item">Installments Paid: {{paidInstallments}}/{{loan.installments}}</li>
+    <li class="list-group-item">Security: {{loan.security}}</li>
+    <li class="list-group-item">Date Activated: {{loan.adate|date}}</li>
+    <li class="list-group-item">Expiry Date: {{loan.edate|date}}</li>
+  </ul>
+</div>

@@ -1,0 +1,29 @@
+<div *ngIf="user">
+  <form #loginForm="ngForm" (submit)="updateLoan()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Amount</label>
+      <input type="text" class="form-control" id="lamount" name="lamount" [(ngModel)]="loan.lamount" #lamount="ngModel">
+    </div>
+    <div class="mb-3" [hidden]='user.is_staff'>
+      <label for="description" class="form-label">Security</label>
+      <input type="text" class="form-control" id="security" name="security" [(ngModel)]="loan.security" #security="ngModel">
+    </div>
+    <div class="mb-3" [hidden]='!user.is_staff'>
+      <label for="description" class="form-label">Duration in Months</label>
+      <input type="text" class="form-control" id="duration" name="duration" [(ngModel)]="loan.duration" #duration="ngModel">
+    </div>
+    <div class="mb-3" [hidden]='!user.is_staff'>
+      <label for="description" class="form-label">Interest</label>
+      <input type="text" class="form-control" id="interest" name="interest" [(ngModel)]="loan.interest" #interest="ngModel">
+    </div>
+    <div class="mb-3" [hidden]='!user.is_staff'>
+      <label for="description" class="form-label">Installments</label>
+      <input type="text" class="form-control" id="installments" name="installments" [(ngModel)]="loan.installments" #installments="ngModel">
+    </div>
+    <div class="mb-3" [hidden]='!user.is_staff'>
+      <label for="description" class="form-label">Amount Paid</label>
+      <input type="text" class="form-control" id="paid" name="paid" [(ngModel)]="loan.paid" #paid="ngModel">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>

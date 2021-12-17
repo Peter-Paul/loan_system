@@ -1,0 +1,35 @@
+<app-dashboard>
+  <h1>Start Your Business Today</h1>
+  <div class="container mt-3" *ngIf="user">
+    <div *ngIf="!user.is_staff">
+      <p [hidden]='user.complete' class="text-danger">Inorder to request for a loan, you must complete your profile</p>
+      <button [disabled]='!user.complete' class="btn btn-primary" (click)="open(content);">Loan Request</button>
+    </div>
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close"
+          (click)="modal.dismiss('Cross click'); success=false; ">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <app-create-loan [user]='user' (addLoan)='createLoan($event)' ></app-create-loan>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light"
+          (click)="modal.close('Close click'); success=false;">Close</button>
+      </div>
+    </ng-template>
+
+    <div class="mt-5">
+      <div class="container-fluid" *ngIf="user.is_staff">
+          <h4>All Loans</h4>
+          <app-loan-list [loans]='allLoans' [users]='users' [user]='user' (openModel)='open($event)' (editLoan)='updateLoan($event)' (removeLoan)='deleteLoan($event)'></app-loan-list>
+      </div>
+      <div class="container-fluid" *ngIf="!user.is_staff">
+        <h4>Loan History</h4>
+        <app-loan-list [loans]='userLoans' [user]='user' (openModel)='open($event)' (editLoan)='updateLoan($event)' (removeLoan)='deleteLoan($event)'></app-loan-list>
+      </div>
+    </div>
+  </div>
+</app-dashboard>
