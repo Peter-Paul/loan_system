@@ -5,6 +5,11 @@ Simple loan management system to track progress of installments for a loan. Desi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
 
+Navigate to the the `loans` folder and run the following commands as instructed
+
+## Install Node Modules
+Run `npm install` to install all node modules within the `package-lock.json` file
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
