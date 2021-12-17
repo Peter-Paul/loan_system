@@ -15,21 +15,6 @@ Run `npm install` to install all node modules within the `package-lock.json` fil
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-### Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-### Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-### Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ### Further help
 
@@ -48,4 +33,18 @@ Create a python environment using `pipenv shell`
 Run `pipenv update` to lock and install all required modules in `Pipfile`
 
 ### Create Database and Makemigrations
+
+Use XAMPP/WAMPP to start Apache and MySQL services on your machine
+
+Create locally hosted database called `loans`
+
+Alternatively, open `loans/settings.py` and modify `DATABASES['default']` key values to your prefered values
+
+Navigate to `loans` folder and run `python manage.py makemigrations`. Once migrations are done, run `python manage.py migrate` to update database
+
+### Development Server
+
+Run `python manage.py runserver` to launch the django development server
+
+
 
