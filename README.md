@@ -41,7 +41,7 @@ This project was generated with `Django version 4.0` and `Python version 3.9`
 
 To run the backend server on your local machine, navigate to the the `backend` folder and run the following commands as instructed
 
-## Install Modules
+### Install Modules
 
 Create a python environment using `pipenv shell`
 
