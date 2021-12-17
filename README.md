@@ -46,5 +46,7 @@ Navigate to `loans` folder and run `python manage.py makemigrations`. Once migra
 
 Run `python manage.py runserver` to launch the django development server
 
+### Further help
 
+To get more help on Django usage check out the [Django Documentation](https://docs.djangoproject.com/en/4.0/) page.
 
