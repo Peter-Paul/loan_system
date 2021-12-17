@@ -1,1 +1,49 @@
 ppj/main.py
+
+
+
+# Frontend
+# compiled output
+loans/dist
+loans/tmp
+loans/out-tsc
+# Only exists if Bazel was run
+loans/bazel-out
+
+# dependencies
+loans/node_modules
+
+# profiling files
+loans/chrome-profiler-events*.json
+loans/speed-measure-plugin*.json
+
+# IDEs and editors
+loans/.idea
+loans/.project
+loans/.classpath
+loans/.c9/
+loans/*.launch
+loans/.settings/
+loans/*.sublime-workspace
+
+# IDE - VSCode
+loans/.vscode/*
+loans/!.vscode/settings.json
+loans/!.vscode/tasks.json
+loans/!.vscode/launch.json
+loans/!.vscode/extensions.json
+loans/.history/*
+
+# misc
+loans/.sass-cache
+loans/connect.lock
+loans/coverage
+loans/libpeerconnection.log
+loans/npm-debug.log
+loans/yarn-error.log
+loans/testem.log
+loans/typings
+
+# System Files
+loans/DS_Store
+loans/Thumbs.db
