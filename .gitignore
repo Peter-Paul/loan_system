@@ -47,3 +47,6 @@ loans/typings
 # System Files
 loans/DS_Store
 loans/Thumbs.db
+
+# Backend
+backend/db.sqlite3

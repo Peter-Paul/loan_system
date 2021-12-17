@@ -40,7 +40,7 @@ Create locally hosted database called `loans`
 
 Alternatively, open `loans/settings.py` and modify `DATABASES['default']` key values to your prefered values
 
-Navigate to `loans` folder and run `python manage.py makemigrations`. Once migrations are done, run `python manage.py migrate` to update database
+Run `python manage.py makemigrations`. Once migrations are done, run `python manage.py migrate` to update database
 
 ### Development Server
 
